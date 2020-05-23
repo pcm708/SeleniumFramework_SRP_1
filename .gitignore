@@ -1,0 +1,31 @@
+# Directories #
+target
+test-output
+Screenshots
+.metadata
+GenieLogs
+src/test/resources/drivers
+allure-results
+# src/test/resources/Driver
+ScoresImportExport
+Config.properties
+
+# Eclipse Files #
+.project
+.classpath
+.settings
+.idea
+.log
+
+# OS Files #
+.DS_Store
+
+# Config.properties File #
+Config.properties
+
+# IntelliJ Files #
+*.iml
+
+# Execution Files
+src/test/resources/testdata/COMMON/execution.sq3
+/bin/
