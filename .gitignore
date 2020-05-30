@@ -20,9 +20,6 @@ Config.properties
 # OS Files #
 .DS_Store
 
-# Config.properties File #
-Config.properties
-
 # IntelliJ Files #
 *.iml
 
