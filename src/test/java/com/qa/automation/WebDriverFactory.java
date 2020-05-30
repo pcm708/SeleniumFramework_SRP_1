@@ -34,7 +34,6 @@ public class WebDriverFactory {
 				System.out.println("[Info]: Browser Launched = Google Chrome");
 				System.setProperty("webdriver.chrome.silentOutput", "true");
 				return new ChromeDriver();
-			
 			}
 		}
 }

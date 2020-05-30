@@ -1,6 +1,6 @@
 package com.qa.hubspot.keywords;
 
-import static com.qa.automation.utils.DataReadWrite.getProperty;
+import static com.qa.automation.utils.ConfigPropertyReader.getProperty;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +16,7 @@ public class GooglePageAction extends GetPage{
 	
 	public GooglePageAction(WebDriver driver) {
 		super(driver);
-		cred = new Credentials(getProperty("./Config.properties", "username"),
-				getProperty("./Config.properties", "password")); 
+		cred = new Credentials(getProperty("username"),getProperty("password")); 
 	}
 
 	public DashboardPageAction signIn() {

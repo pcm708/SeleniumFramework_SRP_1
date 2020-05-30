@@ -15,7 +15,6 @@ public class SignUpTestSessionInitiator extends TestSessionInitiator{
 
 	public SignUpTestSessionInitiator() {
 		super();
-		configureBrowser();
 		_initPage();
 	}
 }

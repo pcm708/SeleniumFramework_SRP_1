@@ -1,6 +1,6 @@
 package com.qa.automation.getpageobjects;
 
-import static com.qa.automation.utils.DataReadWrite.getProperty;
+import static com.qa.automation.utils.ConfigPropertyReader.getProperty;
 import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
@@ -16,7 +16,7 @@ public class BaseUi {
 
 	protected BaseUi(WebDriver driver) {
 		this.driver = driver;
-		timeout = Integer.parseInt(getProperty("./Config.properties", "timeout"));
+		timeout = Integer.parseInt(getProperty("timeout"));
 		this.wait = new SeleniumWait(driver, timeout);
 	}
 
@@ -57,17 +57,6 @@ public class BaseUi {
 		wins = windows.toArray(new String[windows.size()]);
 		driver.switchTo().window(wins[i]);
 		System.out.println("Title: " + driver.switchTo().window(wins[i]).getTitle());
-	}
-
-	public String switchWindow() {
-		String currentWindow = driver.getWindowHandle();
-		Set<String> windows = driver.getWindowHandles();
-		System.out.println("Windows:" + driver.getWindowHandles().size());
-		for (String winHandle : windows) {
-			driver.switchTo().window(winHandle);
-			System.out.println("Window Switched." + driver.getTitle() + " handle window :" + driver.getWindowHandle());
-		}
-		return currentWindow;
 	}
 
 	public void moveToDefaultWindow(String defaultWIndow) {

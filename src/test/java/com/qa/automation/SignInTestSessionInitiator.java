@@ -4,7 +4,7 @@ import com.qa.hubspot.keywords.DashboardPageAction;
 import com.qa.hubspot.keywords.GooglePageAction;
 import com.qa.hubspot.keywords.LoginPageAction;
 
-public class GoogleSignInTestSessionInitiator extends TestSessionInitiator {
+public class SignInTestSessionInitiator extends TestSessionInitiator {
 
 	public GooglePageAction googlePage;
 	public LoginPageAction loginPage;
@@ -16,9 +16,8 @@ public class GoogleSignInTestSessionInitiator extends TestSessionInitiator {
 		dbPage = new DashboardPageAction(driver);
 	}
 
-	public GoogleSignInTestSessionInitiator() {
+	public SignInTestSessionInitiator() {
 		super();
-		configureBrowser();
 		_initPage();
 	}
 }

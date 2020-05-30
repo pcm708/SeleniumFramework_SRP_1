@@ -4,7 +4,7 @@
  */
 package com.qa.automation;
 
-import static com.qa.automation.utils.DataReadWrite.getProperty;
+import static com.qa.automation.utils.ConfigPropertyReader.getProperty;
 import static com.qa.automation.utils.YamlReader.getYamlValue;
 
 import java.util.HashMap;
@@ -22,13 +22,14 @@ public class TestSessionInitiator {
 
 	public TestSessionInitiator() {
 		wdfactory = new WebDriverFactory();
+		configureBrowser();
 	}
 
 	private static Map<String, String> _getSessionConfig() {
 		String[] configKeys = { "browser", "timeout", "chromeDubugMode" };
 		Map<String, String> config = new HashMap<String, String>();
 		for (String string : configKeys) {
-			config.put(string, getProperty("Config.properties", string));
+			config.put(string, getProperty(string));
 		}
 		return config;
 	}

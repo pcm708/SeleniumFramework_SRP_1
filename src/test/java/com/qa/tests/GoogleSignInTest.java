@@ -7,17 +7,18 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.qa.automation.GoogleSignInTestSessionInitiator;
+
+import com.qa.automation.SignInTestSessionInitiator;
 
 public class GoogleSignInTest {
 
-	GoogleSignInTestSessionInitiator signIn;
+	SignInTestSessionInitiator signIn;
 	
 	private void _initVars() {
-		signIn = new GoogleSignInTestSessionInitiator();
+		signIn = new SignInTestSessionInitiator();
 	}
 	
-	@BeforeClass
+	@BeforeClass	
 	public void Start_Test_Session() {
 		_initVars();
 	}

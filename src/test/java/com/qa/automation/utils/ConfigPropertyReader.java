@@ -1,5 +1,8 @@
 package com.qa.automation.utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -10,33 +13,18 @@ import java.util.Properties;
  */
 public class ConfigPropertyReader {
 
-    private static String defaultConfigFile = "./Config.properties";
-    
-    /**
-     * construtor of this class
-     */
-    public ConfigPropertyReader() {
-    }
-
-    /**
-     *
-     * This method will get the properties pulled from a file located relative to the base dir
-     *
-     * @param propFile complete or relative (to base dir) file location of the properties file
-     * @param Property property name for which value has to be fetched
-     * @return String value of the property
-     */
-    public static String getPropertyConfig(String propFile, String Property) {
-        try {
-            Properties prop = ResourceLoader.loadProperties(propFile);
-            return prop.getProperty(Property);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-    
-    public static String getProperty(String property){
-        return getPropertyConfig(defaultConfigFile, property);
-    }
+	public static String getProperty(String value) { 
+	try {
+		Properties prop = new Properties();
+		FileInputStream ip = new FileInputStream(
+				System.getProperty("user.dir") + "\\Config.properties");
+		prop.load(ip);
+		return prop.getProperty(value);
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	return null;
+	}
 }

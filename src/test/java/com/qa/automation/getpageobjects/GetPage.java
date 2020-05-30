@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import static com.qa.automation.utils.DataReadWrite.getProperty;
+import static com.qa.automation.utils.ConfigPropertyReader.getProperty;
 import static com.qa.automation.utils.JavaScriptExecutor.flashAndClick;
 import static com.qa.automation.utils.JavaScriptExecutor.flashInputBox;
 import static com.qa.automation.utils.JavaScriptExecutor.scrollIntoView;
@@ -23,11 +23,8 @@ import static com.qa.automation.utils.JavaScriptExecutor.flashAndVerify;
 
 public class GetPage extends BaseUi {
 
-	protected WebDriver driver;
-
 	public GetPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
 	}
 
 	protected WebElement element(By locator) {
@@ -53,7 +50,7 @@ public class GetPage extends BaseUi {
 		wait.resetImplicitTimeout(10);
 		wait.waitForElementToBeVisible(element);
 		try {
-		if(getProperty("Config.properties", "highlightElement").equals("true"))	
+		if(getProperty("highlightElement").equals("true"))	
 			flashAndVerify(element, driver);
 		return element.isDisplayed();
 		}
@@ -67,7 +64,7 @@ public class GetPage extends BaseUi {
 	protected void fillText(WebElement element, String inputResults) {
 		try {
 		wait.waitForElementToBeVisible(element);
-		if(getProperty("Config.properties", "highlightElement").equals("true"))	
+		if(getProperty("highlightElement").equals("true"))	
 			flashInputBox(element, driver);
 		element.clear();
 		element.sendKeys(inputResults);
@@ -80,7 +77,7 @@ public class GetPage extends BaseUi {
 		wait.waitForPageToLoadCompletely();
 		wait.waitForElementToBeVisible(element);
 		try {
-			if(getProperty("Config.properties", "highlightElement").equals("true"))	
+			if(getProperty("highlightElement").equals("true"))	
 			flashAndClick(element, driver);
 			element.click();
 		} catch (StaleElementReferenceException ex1) {
